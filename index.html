@@ -4,47 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta property="og:title" content="Meu biquíni novo... 🔥">
-    <meta property="og:description" content="Será que fiquei gostosa nesse biquíni novo? Veja o vídeo completo no meu TikTok!">
-    <meta property="og:image" content="https://suporteivymena.github.io/video-tiktok/foto.jpg">
-    <meta property="og:type" content="video.other">
-    <meta property="og:url" content="https://suporteivymena.github.io/video-tiktok/">
+    <!-- MINIATURA QUE APARECE NO WHATSAPP (biquíni azul) -->
+    <meta property="og:title" content="🔥 Meu biquíni novo... 50 vídeos por apenas R$49,50">
+    <meta property="og:description" content="Anal, oral, lésbico, putaria pesada... Abra no TikTok e ganhe 50% OFF na hora!">
+    <meta property="og:image" content="https://suporteivymena.github.io/video-tiktok/biquini.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-    <title>TikTok · ivymena</title>
+    <title>VIP Master Play - Ivy Mena</title>
     <style>
-        body { background: #000; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .container { padding: 20px; border: 1px solid #333; border-radius: 15px; background: #111; max-width: 90%; }
-        .btn { background: #ff0050; color: white; padding: 18px 35px; border: none; border-radius: 50px; font-size: 20px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 0 4px 15px rgba(255, 0, 80, 0.4); }
-        h1 { font-size: 24px; margin-bottom: 10px; }
-        p { color: #ccc; margin-bottom: 25px; }
+        body { margin:0; padding:0; background:#000; color:#fff; font-family:Arial, sans-serif; text-align:center; overflow:hidden; }
+        .background { 
+            position:fixed; top:0; left:0; width:100%; height:100%; 
+            background:url('https://suporteivymena.github.io/video-tiktok/chuveiro.jpg') center/cover no-repeat; 
+            filter: brightness(0.65); z-index:-1; 
+        }
+        .container { position:relative; padding:20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; }
+        h1 { font-size:32px; margin:10px 0; text-shadow: 0 0 15px #ff0050; }
+        .preco { font-size:48px; font-weight:bold; color:#ff0050; margin:10px 0; }
+        .desconto { font-size:22px; color:#0f0; font-weight:bold; }
+        .btn-tiktok {
+            background: linear-gradient(90deg, #ff0050, #ff4081);
+            color: white; border: none; padding: 18px 40px; font-size: 20px; font-weight: bold;
+            border-radius: 50px; margin: 25px auto; display: block; width: 90%; max-width: 340px;
+            box-shadow: 0 0 25px rgba(255,0,80,0.8); cursor: pointer;
+        }
+        .btn-whatsapp {
+            background: #25D366; color: white; border: none; padding: 16px 40px; font-size: 18px;
+            border-radius: 50px; margin: 15px auto; display: block; width: 90%; max-width: 340px;
+        }
+        .aviso { font-size:14px; opacity:0.85; margin-top:30px; }
     </style>
 </head>
 <body>
+    <div class="background"></div>
+    
     <div class="container">
-        <h1>🔥 Conteúdo Exclusivo</h1>
-        <p>Para assistir ao vídeo da Ivy Mena, toque no botão abaixo para abrir no App oficial.</p>
-        <button class="btn" onclick="openTikTok()">ABRIR NO TIKTOK</button>
+        <h1>🔥 VIP MASTER PLAY DA SEMANA</h1>
+        <p style="font-size:20px; margin:10px 0;">50 vídeos exclusivos da Ivy Mena</p>
+        
+        <div class="preco">R$ 49,50</div>
+        <div class="desconto">50% OFF se abrir o TikTok agora!</div>
+        
+        <p style="margin:15px 0; font-size:17px;">
+            • Anal profundo<br>
+            • Oral guloso<br>
+            • Lésbico safado<br>
+            • Putaria com casal<br>
+            • Squirt, creampie e muito mais...
+        </p>
+
+        <button class="btn-tiktok" onclick="abrirTikTok()">ABRIR NO TIKTOK E GARANTIR DESCONTO</button>
+        
+        <button class="btn-whatsapp" onclick="abrirWhatsApp()">QUERO O VIP COM 50% OFF AGORA</button>
+        
+        <div class="aviso">
+            Abra o vídeo no TikTok → tire print da tela → envie no WhatsApp<br>
+            e receba o acesso imediato com 50% de desconto!
+        </div>
     </div>
 
     <script>
-        function openTikTok() {
-            const videoId = "ZS9LwN6pcdLxL-ip7gi";
-            const appUrl = `snssdk1128://webview?url=https%3A%2F%2Fwww.tiktok.com%2Fd%2F1%2F${videoId}%2F&from=webview&refer=web`;
-            const webUrl = `https://www.tiktok.com/d/1/${videoId}/`;
+        const videoCode = "ZS9LwN6pcdLxL-ip7gi";
 
-            // Tenta abrir o App
-            window.location.replace(appUrl);
-
-            // Timeout de 2 segundos (mais seguro para celulares lentos)
-            setTimeout(() => {
-                window.location.href = webUrl;
-            }, 2000);
+        function abrirTikTok() {
+            const deepLink = `snssdk1128://aweme/detail/${videoCode}?refer=web&gd_label=click`;
+            const webFallback = `https://www.tiktok.com/d/1/${videoCode}/`;
+            window.location.href = deepLink;
+            setTimeout(() => { window.location.href = webFallback; }, 2200);
         }
 
-        // Tenta abrir automático se for Android, mas mantém o botão se falhar
+        function abrirWhatsApp() {
+            const mensagem = encodeURIComponent("Oi Ivy! Abri o TikTok, aqui o print. Quero o VIP Master Play com 50% OFF (R$ 49,50) 🔥");
+            window.location.href = `https://wa.me/SEUNUMERO?text=${mensagem}`;  
+            // TROQUE "SEUNUMERO" pelo seu número completo com DDD (ex: 5571999999999)
+        }
+
         window.onload = function() {
             if (/android/i.test(navigator.userAgent)) {
-                setTimeout(openTikTok, 500);
+                setTimeout(abrirTikTok, 1200);
             }
         };
     </script>
