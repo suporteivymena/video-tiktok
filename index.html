@@ -3,36 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <meta property="og:title" content="Meu biquíni novo... 🔥">
     <meta property="og:description" content="Será que fiquei gostosa nesse biquíni novo? Veja o vídeo completo no meu TikTok!">
-    
     <meta property="og:image" content="https://suporteivymena.github.io/video-tiktok/foto.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/jpeg">
-    
     <meta property="og:type" content="video.other">
     <meta property="og:url" content="https://suporteivymena.github.io/video-tiktok/">
 
-    <script type="text/javascript">
-        // SCRIPT PARA FORÇAR ABERTURA DIRETA NA APP
-        (function() {
-            const appUrl = "snssdk1128://webview?url=https%3A%2F%2Fwww.tiktok.com%2Fd%2F1%2FZS9LwN6pcdLxL-ip7gi%2F";
-            const webUrl = "https://www.tiktok.com/d/1/ZS9LwN6pcdLxL-ip7gi/";
+    <title>TikTok · ivymena</title>
+    <style>
+        body { background: #000; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .container { padding: 20px; border: 1px solid #333; border-radius: 15px; background: #111; max-width: 90%; }
+        .btn { background: #ff0050; color: white; padding: 18px 35px; border: none; border-radius: 50px; font-size: 20px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 0 4px 15px rgba(255, 0, 80, 0.4); }
+        h1 { font-size: 24px; margin-bottom: 10px; }
+        p { color: #ccc; margin-bottom: 25px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Conteúdo Exclusivo</h1>
+        <p>Para assistir ao vídeo da Ivy Mena, toque no botão abaixo para abrir no App oficial.</p>
+        <button class="btn" onclick="openTikTok()">ABRIR NO TIKTOK</button>
+    </div>
 
-            // Tenta abrir a App imediatamente
+    <script>
+        function openTikTok() {
+            const videoId = "ZS9LwN6pcdLxL-ip7gi";
+            const appUrl = `snssdk1128://webview?url=https%3A%2F%2Fwww.tiktok.com%2Fd%2F1%2F${videoId}%2F&from=webview&refer=web`;
+            const webUrl = `https://www.tiktok.com/d/1/${videoId}/`;
+
+            // Tenta abrir o App
             window.location.replace(appUrl);
 
-            // Se a App não abrir em 800ms, ele vai para o navegador como plano B
-            setTimeout(function() {
+            // Timeout de 2 segundos (mais seguro para celulares lentos)
+            setTimeout(() => {
                 window.location.href = webUrl;
-            }, 800);
-        })();
-    </script>
+            }, 2000);
+        }
 
-    <title>TikTok · ivymena</title>
-</head>
-<body style="background-color: #000;">
-    </body>
+        // Tenta abrir automático se for Android, mas mantém o botão se falhar
+        window.onload = function() {
+            if (/android/i.test(navigator.userAgent)) {
+                setTimeout(openTikTok, 500);
+            }
+        };
+    </script>
+</body>
 </html>
